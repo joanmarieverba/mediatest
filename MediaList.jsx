@@ -4,13 +4,15 @@ import $ from 'jquery';
 import MediaItem from './MediaItem.jsx';
 
 var titleStyle = {
-    border: "2px solid purple",
+    border: "5px solid purple",
+    borderRadius: "15px",
     display: "inline-block",
     marginTop: "50px",
     marginLeft: '50px',
-    fontFamily: "Righteous",
+    fontFamily: "Bungee",
     fontSize: "14px",
     padding: '15px',
+    backgroundColor: "#3ee61c",
     WebkitTransition: 'all',
     msTransition: 'all'
  };
@@ -19,10 +21,10 @@ export default class MediaList extends Component {
   render() {
     return (
       <div style={titleStyle}>
-        <h3>List of media  titles and types</h3>
+        <h2>List of media titles and types</h2>
         {this.props.media.map(function(item){
             return (
-             <MediaItem title={item.Title} type={item.Type}  id={item.imdbID}/> 
+             <MediaItem title={item.Title} type={item.Type} year={item.Year} id={item.imdbID} key={item.imdbID}/>
             )
         })}
       </div>

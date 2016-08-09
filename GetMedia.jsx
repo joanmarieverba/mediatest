@@ -26,6 +26,7 @@ export default class GetMedia extends Component {
     }
   getOneMedia(query){  //put it in a function so that it only gets called once
 
+    // omdb({s: query,page:1}).then((response) => {
     omdb({s: query}).then((response) => {
       if (response && response.Response === "True") {
 
@@ -48,6 +49,7 @@ export default class GetMedia extends Component {
   //react calls render over and over again by the brower when it refreshes
   render() {
     if (this.state.media !== null) {
+      console.log(this.state.media);
     return (
       <div>
         <MediaList media={this.state.media}/>
@@ -62,3 +64,13 @@ export default class GetMedia extends Component {
     }
   }
   };
+
+
+// var page1 = omdb({s: query, page: 1});
+// var page2 = omdb({s: query, page: 2});
+//
+// Promise.all ([page1, page2]).then (function(responses)){
+//   this.setState({
+//     media: responses[0].Search.concat(responses[1].Search);
+//   })
+// });
