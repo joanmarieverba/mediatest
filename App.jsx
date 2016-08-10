@@ -9,8 +9,8 @@ import globalStyles from "./assets/styles/global.css";
    */
    var pageTitleStyle = {
        backgroundImage: 'url("http://jmvtestsite.com/wp-content/uploads/2016/07/texture.jpg")',
-       position: "fixed",
-       height: "100%",
+      //  position: "fixed",
+       minHeight: "100%",
        width: "100%",
        margin: "0 auto",
        WebkitTransition: 'all',
@@ -51,7 +51,7 @@ import globalStyles from "./assets/styles/global.css";
     render() {
       return (
         <div style={pageTitleStyle}>
-          <h2 style={headerStyle}>Input your favorite media (movie, TV series, episode) title.</h2>
+          <h2 style={headerStyle}>Input your favorite media (movie, TV series, game, etc.) title.</h2>
           <h2 style={headerStyle}> Click on the title to go to the imdb page.</h2>
           <div style={centeredStyle}>
             <MediaSearchInput onSearchInputChange={this.handleSearchInputChange.bind(this)}/>

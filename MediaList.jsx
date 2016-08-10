@@ -22,6 +22,7 @@ export default class MediaList extends Component {
     return (
       <div style={titleStyle}>
         <h2>List of media titles and types</h2>
+        <h5>(up to 20 results)</h5>
         {this.props.media.map(function(item){
             return (
              <MediaItem title={item.Title} type={item.Type} year={item.Year} id={item.imdbID} key={item.imdbID}/>

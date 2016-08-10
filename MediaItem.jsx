@@ -4,7 +4,7 @@ import $ from 'jquery';
 
 var element1 = {
   display: "inline-block",
-  marginRight: "100px",
+  marginRight: "50px",
   marginLeft: "10px",
   float: "left",
  };

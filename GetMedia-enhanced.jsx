@@ -29,13 +29,13 @@ export default class GetMedia extends Component {
 
     var page1 = omdb({s: query, page:1});
     var page2 = omdb({s: query, page:2});
-    console.log("page 1 = ", page1);
-    Promise.all ([page1, page2]).then ((response) => {
-      if (response[0] && response[0].Response === "True") {
+
+    Promise.all ([omdb({s: query, page:1}), omdb({s: query, page:2})]).then ((response) => {
+      if (response && response.Response === "True") {
         this.setState({
           media: response[0].Search.concat(response[1].Search)
         })
-      } else if (response[0] && response[0].Response === "False") {
+      } else if (response && response.Response === "False") {
         this.setState({media: null});
       } else {
         console.error('Unknown error connecting to omdbapi.');

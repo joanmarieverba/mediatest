@@ -25,25 +25,23 @@ export default class GetMedia extends Component {
   //      this.getOneMedia(this.props.query);  //calls once  handled by the button click
     }
   getOneMedia(query){  //put it in a function so that it only gets called once
-  // omdb({s: query,page:1}).then((response) => {
 
-    var page1 = omdb({s: query, page:1});
-    var page2 = omdb({s: query, page:2});
-    console.log("page 1 = ", page1);
-    Promise.all ([page1, page2]).then ((response) => {
-      if (response[0] && response[0].Response === "True") {
-        this.setState({
-          media: response[0].Search.concat(response[1].Search)
-        })
-      } else if (response[0] && response[0].Response === "False") {
+    // omdb({s: query,page:1}).then((response) => {
+    omdb({s: query}).then((response) => {
+      if (response && response.Response === "True") {
+
+        this.setState({media: response.Search});   ///media comes back with reponse data in an array
+      } else if (response && response.Response === "False") {
         this.setState({media: null});
       } else {
         console.error('Unknown error connecting to omdbapi.');
       }
-    })};
+    });
+  }
+
 
   //if the query changed, call getOneMedia
-  componentWillReceiveProps (nextProps) {
+  componentWillReceiveProps (nextProps){
   if (this.props.query !== nextProps.query){
     this.getOneMedia(nextProps.query);
   }
