@@ -15,7 +15,7 @@ var element2 = {
 
  var lineofheight = {
      display: "block",
-     height: "20px",
+     height: "50px",
   };
 
 export default class MediaItem extends Component {
